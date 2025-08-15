@@ -34,7 +34,6 @@ class TranslationService:
     """翻译服务类"""
 
     def __init__(self):
-        print(Config.OPENAI_API_KEY)
         self.client = openai.OpenAI(api_key=Config.OPENAI_API_KEY)
 
     def translate_content(self, news_id: str, title: str, description: str, content: str, target_language: str) -> Dict[
