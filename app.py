@@ -393,7 +393,7 @@ def translate_multi():
         translations_dict = defaultdict(dict)
         for translation in translations:
             key_list = list(translation.keys())
-            key_0, code = key_list[0].split('_')
+            key_0, code = key_list[0].split('_',maxsplit=1)
             key_1 = key_list[1].split('_')[0]
             key_2 = key_list[2].split('_')[0]
             if '翻译失败' not in translation[key_list[0]]:
