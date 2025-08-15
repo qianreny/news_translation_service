@@ -25,14 +25,14 @@ class LanguageConfig:
     def get_target_languages() -> Dict[str, Dict[str, Any]]:
         """获取目标语言配置"""
         return {
-            'tw': {
+            'zh_TW': {
                 'name': '繁体中文（台湾）',
-                'code': 'tw',
+                'code': 'zh_TW',
                 'prompt_template': LanguageConfig._get_traditional_tw_prompt()
             },
-            'zh_hk': {
+            'zh_HK': {
                 'name': '繁体中文（香港）',
-                'code': 'zh_hk',
+                'code': 'zh_HK',
                 'prompt_template': LanguageConfig._get_traditional_hk_prompt()
             },
             'vi': {
