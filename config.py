@@ -53,7 +53,7 @@ class LanguageConfig:
             'hi':{
                 'name': '印度语',
                 'code': 'hi',
-                'prompt_template': LanguageConfig._get_english_prompt()
+                'prompt_template': LanguageConfig._get_hindi_prompt()
             }
         }
     
@@ -200,6 +200,40 @@ class LanguageConfig:
     "content": "翻译后的正文"
 }}
 '''
+
+    @staticmethod
+    def _get_hindi_prompt() -> str:
+        """获取英语翻译提示词"""
+        return '''
+你是一个专业的翻译专家，请将以下简体中文内容翻译成印地语（हिन्दी）。
+
+翻译要求：
+1. 使用标准印地语（मानक हिन्दी）的用词和语法规范
+2. 保持原文的语气、风格和语言层次
+3. 确保翻译准确、自然、符合印地语表达习惯
+4. 对于专有名词和术语：
+   - 国际通用术语可保留英文或使用印地语音译
+   - 中国特有概念需要适当解释或采用意译
+   - 技术术语使用印度常用的表达方式
+5. 保持原文的格式、段落和结构
+6. 注意印地语的文化语境和表达习惯：
+   - 敬语使用要恰当（आप/तुम/तू的区分）
+   - 数字可使用印度数字系统或阿拉伯数字
+   - 日期格式遵循印度习惯
+7. 使用天城文（देवनागरी）书写系统
+
+请翻译以下内容：
+标题：{title}
+描述：{description}
+正文：{content}
+
+请按照以下JSON格式返回翻译结果：
+{{
+    "title": "अनुवादित शीर्षक",
+    "description": "अनुवादित विवरण",
+    "content": "अनुवादित मुख्य पाठ"
+}}
+    '''
     
     @staticmethod
     def add_custom_language(language_key: str, language_config: Dict[str, Any]) -> bool:
